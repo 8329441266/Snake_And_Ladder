@@ -7,34 +7,34 @@ class Utility{
     current_position = 0;
 
     rollDice = () => {
-       
+        this.current_position = this.START_POSITION;       
+        while(this.current_position<this.END_POSITION){
         var dice = Math.floor( Math.random() * 6 ) + 1 ;
-         console.log('Random check dice : '+dice);
-         let check_option = Math.floor(Math.random()*3)+1;
+        console.log('Random check dice : '+dice);
+        let check_option = Math.floor(Math.random()*3)+1;
 
-         switch(check_option){
-            case this.SNAKE:
-                console.log('SNAKE');
-                if(this.current_position - dice >= this.STARTING_POSITION){
-                   this.current_position = this.current_position - dice;   
-                }
-                break;
+            switch(check_option){
+                case this.SNAKE:
+                    console.log('SNAKE');
+                    if(this.current_position - dice >= this.STARTING_POSITION){
+                        this.current_position = this.current_position - dice;   
+                    }
+                     break;
 
-            case this.LADDER :
-                console.log(' LADDER ');
-                if(this.current_position + dice <= this.ENDING_POSITION){
-                    this.current_position = this.current_position + dice;
-                }
-                break;
+                    case this.LADDER :
+                        console.log(' LADDER ');
+                        if(this.current_position + dice <= this.ENDING_POSITION){
+                            this.current_position = this.current_position + dice;
+                        }
+                        break;
 
-            default:
-                console.log('NO PLAY');
-                this.current_position = this.current_position;
-                break;
-        }         
-            console.log('Current position :${current_position}');     
+                    default:
+                        console.log('NO PLAY');
+                            this.current_position = this.current_position;
+                            break;
+                }  
+            }
+                console.log('Current position :${this.current_position}');     
     }
-
-
 }
 module.exports=new Utility();
